@@ -28,7 +28,17 @@ def add_tag(character, emotions, tag_name):
 
         ],
         # what to say initially if a user starts a new session in this emotional state. aka sad.. go *sigh*
-        "starter": [],
+        # which personality trait to use as a the chance that they use a starter
+        "starter": {"responses": []},
+        "personalityState": "",  # the current personality trait that is dominate and determines roles
+        "personality": {
+            "aggressive": 0,
+            "passive": 0,
+            "horny": 0,
+            "depressed": 0,
+            "dominating": 0,
+            "quirky": 0
+        },
         "emotions": {}
     }
     save_tag(character, emotions, tag_name, tag)
