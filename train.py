@@ -37,7 +37,10 @@ def add_tag(character, emotions, tag_name):
             "horny": 0,
             "depressed": 0,
             "dominating": 0,
-            "quirky": 0
+            "quirky": 0,
+            "gamer": 0,
+            "scary": 0,
+            "promiscuous": 0
         },
         "emotions": {}
     }
