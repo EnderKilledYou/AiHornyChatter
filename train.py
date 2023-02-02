@@ -21,9 +21,11 @@ def add_intent_input(character, emotions, tag_name, prompt):
 def add_tag(character, emotions, tag_name):
     tag = {
         "tag": tag_name,
+
         "patterns": [
 
         ],
+        # now looks like {text,personalityAffinity}
         "responses": [
 
         ],
