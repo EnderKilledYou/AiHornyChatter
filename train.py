@@ -24,11 +24,12 @@ def add_tag(character, emotions, tag_name):
 
         "patterns": [
 
-        ],
-        # now looks like {text,personalityAffinity}
+        ],  # cleaned user input, stemmed and trunc'd, [{original,cleaned}]
+
         "responses": [
 
-        ],
+        ],  # now looks like [{text,personalityAffinity}]
+        "emotionalComplexity": 1,  # min 1, max ???
         # what to say initially if a user starts a new session in this emotional state. aka sad.. go *sigh*
         # which personality trait to use as a the chance that they use a starter
         "starter": {"responses": []},
