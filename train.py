@@ -33,9 +33,9 @@ def add_tag(character, emotions, tag_name):
         # which personality trait to use as a the chance that they use a starter
         "starter": {"responses": []},
         "personalityState": "",  # the current personality trait that is dominate and determines roles
-        # this matches an emotion for a amplification to the
+        # this matches an emotion for a amplification to the top two emotions that are greater minthreshold
         "personality": {
-            "aggressive": [],  # {emotion:amplyifyAmount}
+            "aggressive": [],  # [{emotion,amplyifyAmount,minThresh}]
             "passive": [],
             "horny": [],
             "depressed": [],
@@ -43,7 +43,7 @@ def add_tag(character, emotions, tag_name):
             "quirky": [],
             "gamer": [],
             "scary": [],
-            "promiscuous": [] # p.s. promiscuous is NOT an emotion.
+            "promiscuous": []  # p.s. promiscuous is NOT an emotion.
         },
         "emotions": {}
     }
