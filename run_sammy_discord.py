@@ -16,9 +16,9 @@ client = discord.Client(intents=intents)
 async def on_ready():
     print(f'We have logged in as {client.user}')
     text_channel_list = []
-    for guild in client.guilds:
-        for channel in guild.text_channels:
-            await channel.send(starter())
+
+
+users = {}
 
 
 @client.event
@@ -26,11 +26,20 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+    if message.author.id not in users:
+        users[message.author.id] = run_samantha()
+        inquery, starter = users[message.author.id]
+        await message.author.send(starter())
+    if message.guild:
+        return
+
+    inquery, starter = users[message.author.id]
+
     async with message.channel.typing():
         inp = str(message.content)
         txt = inquery(inp)
         if txt is not None:
-            await message.channel.send(txt)
+            await message.author.send(txt)
             print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL, txt)
             return
 
@@ -40,9 +49,8 @@ async def on_message(message):
         print("Generated: " + respond)
         print("Reworked: " + rewrote_response)
         print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL, rewrote_response)
-        await message.channel.send(rewrote_response)
+        await message.author.send(rewrote_response)
 
 
-inquery, starter = run_samantha()
 tx = TextRewrite()
 client.run('Nzk2NDQyMTA1OTk1MTk4NTE0.GAJ9wo.INVpKBh3PdFcg7Rlb1kFBrlHKFDly0kicXn5IQ')

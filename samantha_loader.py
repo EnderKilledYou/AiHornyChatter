@@ -303,7 +303,7 @@ def run_samantha():
         print(index_of_highest_match)
 
         highest_confidence = result[0][index_of_highest_match]
-        min_conf = .87
+        min_conf = .9699
         print(f"Highest was {highest_confidence}  / {min_conf}  ")
         if highest_confidence < min_conf:
 
