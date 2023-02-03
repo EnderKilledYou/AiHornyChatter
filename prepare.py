@@ -53,7 +53,7 @@ def prepare_character_emotion(character: str, emotion: str):
     model.compile(loss='sparse_categorical_crossentropy',
                   optimizer='adam', metrics=['accuracy'])
     model.summary()
-    epochs = 500
+    epochs = 1500
     history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
     model.save(get_character_emotion_folder_path(character, emotion))
     # to save the fitted tokenizer

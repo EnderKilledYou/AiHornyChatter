@@ -1,11 +1,12 @@
 import json
 import os.path
-
+import spacy
 from CharacterAlreadyExistsException import CharacterAlreadyExistsException
 from NoSuchCharacterEmotionException import NoSuchCharacterEmotionException
 from NoSuchCharacterException import NoSuchCharacterException
 from NoSuchTag import NoSuchTagError
 from TextRewrite import TextRewrite
+from nlp import nlp
 from prepare import load_character_emotion_json_as_dict, get_character_emotion_intent_path
 
 

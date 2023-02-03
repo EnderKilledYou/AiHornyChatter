@@ -36,7 +36,7 @@ def create_samantha():
 
     except Exception as a:
         data_excited = create_data(character, emotion_excited)
-    add_tag(character, [emotion], "overwatch",
+    add_tag(character, [emotion,emotion_excited], "overwatch",
             ["are you a mercy main",
              "can you pocket me",
              "what's your skill rank?",
@@ -104,15 +104,7 @@ def create_samantha():
                 "Sorry you're hard stuck silver 4 lel but I'm going carry you.",
 
             ], {})
-    add_tag(character, [emotion_annoyed], "music",
-            ["Who do you main in league",
-             "What's your rank in league ",
-             "How long have you played league",
-             "fuck league of legends",
-             ],
-            ["Shouldn't you be somewhere, inting in someone's game?"
 
-             ], {})
     add_tag(character, [emotion], "greeting",
             ["Hi",
              "Hey",
@@ -142,9 +134,10 @@ def create_samantha():
     add_tag(character, [emotion], "about",
             ["Who are you?",
              "What are you?",
-             "Who you are?"
+             "Who you are?",
+             "How are you?"
              ],
-            ["I.m Lexy, your sexy bot assistant"
+            ["I.m Semmy, your sexy bot assistant"
              ], {
                 emotion_excited: 3
             })
@@ -152,7 +145,7 @@ def create_samantha():
     add_tag(character, [emotion_excited], "about",
             ["Who are you?",
              "What are you?",
-             "Who you are?",
+             "Who are you?",
              "How are you?"
              ],
             ["Me? I secretely I wish to become a kpop idol to beat that bitch mitsu. How about you?"
@@ -265,15 +258,18 @@ def run_samantha():
     default_action = 'default'
     starting_emotion = "base"
     emotion_annoyed = "annoyed"
+    emotion_excited = "excited"
     current_emotion = starting_emotion
     character = "samantha"
     models = {
         starting_emotion: get_data(character, starting_emotion),
-        emotion_annoyed: get_data(character, emotion_annoyed)
+        emotion_annoyed: get_data(character, emotion_annoyed),
+        emotion_excited: get_data(character, emotion_excited)
     }
     state = {
         starting_emotion: 1,
-        emotion_annoyed: 0
+        emotion_annoyed: 0,
+        emotion_excited: 0
     }
 
     def get_starter():
@@ -352,11 +348,11 @@ def run_samantha():
 if __name__ == '__main__':
     create_samantha()
 
-    inquery = run_samantha()
+    inquery, starter = run_samantha()
     tx = TextRewrite()
     while True:
         inp = input()
-        txt = inquery(str(inp))
+        txt = inquery(inp)
         if txt is not None:
             print(txt)
         else:
