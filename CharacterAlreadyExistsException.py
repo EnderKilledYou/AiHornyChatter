@@ -1,0 +1,2 @@
+class CharacterAlreadyExistsException(BaseException):
+    pass

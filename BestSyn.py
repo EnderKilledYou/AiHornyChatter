@@ -1,16 +1,22 @@
 import json
 import urllib
-
+import urllib.request
 from nltk.corpus import wordnet
 
-from TextRewrite import nlp
+import spacy
 
+from nlp import nlp
+
+
+# shim
+def unicode(s):
+    return s
 
 class BestSyn:
 
     def get_datamuse_syn_list(self):
         url = "https://api.datamuse.com/words?ml=" + self.word
-        response = urllib.urlopen(url)
+        response = urllib.request.urlopen(url)
         data = response.read().decode("utf-8")
         json_data = json.loads(data)
         word_list = []
@@ -22,7 +28,7 @@ class BestSyn:
         self.word = word
         self.best_score = 0.0
         self.best_choice = ""
-
+        self.nlp = nlp
     def pull(self):
         words_list = self.get_datamuse_syn_list()
         for syn_word in words_list:
@@ -34,8 +40,8 @@ class BestSyn:
                 use_nltk = False
                 # todo: more specific exceptions
 
-            spacy_raw_word = nlp(unicode(self.word.lower()))
-            spacy_syn_word = nlp(unicode(syn_word.lower()))
+            spacy_raw_word = self.nlp(unicode(self.word.lower()))
+            spacy_syn_word = self.nlp(unicode(syn_word.lower()))
 
             spacy_score = spacy_raw_word.similarity(spacy_syn_word)
 

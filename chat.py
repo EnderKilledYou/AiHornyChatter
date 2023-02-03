@@ -18,8 +18,8 @@ data = load_intents()
 
 def chat():
     # load trained model
-    model = keras.models.load_model('chat_model')
 
+    model = keras.models.load_model('chat_model')
     # load tokenizer object
     with open('tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
@@ -27,10 +27,6 @@ def chat():
     # load label encoder object
     with open('label_encoder.pickle', 'rb') as enc:
         lbl_encoder = pickle.load(enc)
-
-    # parameters
-    max_len = 20
-
     while True:
         print(Fore.LIGHTBLUE_EX + "User: " + Style.RESET_ALL, end="")
         inp = input()
