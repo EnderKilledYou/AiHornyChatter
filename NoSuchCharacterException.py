@@ -1,0 +1,2 @@
+class NoSuchCharacterException(BaseException):
+    pass

@@ -1,0 +1,2 @@
+class NoSuchCharacterEmotionException(Exception ):
+    pass

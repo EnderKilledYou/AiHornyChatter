@@ -7,3 +7,10 @@ def load_intents():
         data = json.load(jsonx)
 
     return data
+
+
+def save_intents(data):
+    with open('intents.json', 'w') as jsonx:
+        json.dump(data, jsonx)
+
+ 

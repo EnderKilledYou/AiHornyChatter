@@ -13,7 +13,8 @@
         "Hello",
         "Hi",
         "Hi there"
-      ]
+      ],
+      "emotions": {}
     },
     {
       "tag": "goodbye",
@@ -26,7 +27,8 @@
         "See you later",
         "Have a nice day",
         "Bye! Come back again"
-      ]
+      ],
+      "emotions": {}
     },
     {
       "tag": "thanks",
@@ -41,7 +43,8 @@
         "Any time!",
         "My pleasure",
         "You're most welcome!"
-      ]
+      ],
+      "emotions": {}
     },
     {
       "tag": "about",
@@ -52,7 +55,8 @@
       ],
       "responses": [
         "I.m Lexy, your sexy bot assistant"
-      ]
+      ],
+      "emotions": {}
     },
     {
       "tag": "name",
@@ -65,7 +69,8 @@
         "You can call me Lexy.",
         "I'm Lexy!",
         "Just call me as Lexy"
-      ]
+      ],
+      "emotions": {}
     },
     {
       "tag": "fuck",

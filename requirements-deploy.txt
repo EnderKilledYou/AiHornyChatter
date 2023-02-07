@@ -1,0 +1,5 @@
+discord
+Flask==1.1.2
+spacy==3.5.0
+scikit_learn==1.2.1
+chatterbot===1.0.5
